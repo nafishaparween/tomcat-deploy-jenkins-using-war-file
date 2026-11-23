@@ -45,9 +45,11 @@ pipeline{
 			}
     stage('deploy'){
     steps{
+		sh '''
       echo "start deploy"
       scp -i "mykey.pem" *.war ec2-user@172.31.5.85:/home/ec2-user/tomcat10/webapps/
       echo "over "
+	  '''
 
     }
     }
